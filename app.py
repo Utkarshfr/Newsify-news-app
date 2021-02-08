@@ -3,6 +3,7 @@ from flask import render_template,request, jsonify, make_response
 import requests
 from NewsAPI.FetchAPI import fetchHeadlines,fetchSource,fetchLatest
 
+
 # Place your API_KEY here as a parameter
 API_KEY = "apiKey=" + "API_KEY here"
 

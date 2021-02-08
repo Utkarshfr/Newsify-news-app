@@ -10,7 +10,7 @@
 ## Requirements
 1. [Flask](https://pypi.org/project/Flask/ "Flask Module")
 2. Go to [NewsAPI](https://newsapi.org/ "NewsAPI Home") website and register to get API_KEY
-3. Paste the API_KEY obtained into ```app.py``` file and ```NewsAPI/FetchAPI.py``` file at desired locations
+3. Add the API_KEY obtained into ```app.py```  and ```NewsAPI/FetchAPI.py```  at desired locations
 
 
 
