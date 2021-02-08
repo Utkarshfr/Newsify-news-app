@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <script src="{{ url_for('static',filename='js/app.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=News+Cycle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Sources by Newsify</title>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+         <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+          <a href="/" class="w3-bar-item w3-button w3-padding-large">Headlines</a>
+          <a href="/latest" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Latest</a>
+          <a href="/source" class="w3-bar-item w3-button w3-padding-large w3-hide-small">sources</a>          
+        </div>
+      </div>
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+        <a href="/latest" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Latest</a>
+        <a href="/source" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">sources</a>
+    </div>
+        
+
+
+    <div style="margin-top: 35px">
+        <div class="column left">
+            <div class="filter">
+                <input type="checkbox" name="country" onchange="toggleCountry()">
+                <label for="country">country</label><br><br>
+                <div id="countryList" style="display: none;">
+                    <label for="countryList">Choose country:</label>
+                    <select name="countryList">
+                    </select>
+                </div>
+                <br>
+
+                <input type="checkbox" name="category" onchange="toggleCategory()">
+                <label for="category">category</label><br><br>
+                <div id="categoryList" style="display: none;">
+                    <label for="categoryList">Choose Category:</label>
+                    <select name="categoryList">
+                        <option value="business">Business</option>
+                        <option value="sports">Sports</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="technology">Technology</option>
+                        <option value="general">General</option>
+                        <option value="health">Health</option>
+                        <option value="science">Science</option>
+                    </select>
+                </div>
+                <br>
+                <script>fillCountryTags();</script>
+                <button onclick="filterSourceResults();">Apply</button>
+            </div>
+        </div>
+
+        <div class="column right">
+            <div id="loader" style="display: none;">
+                <div class="lds-ripple"><div></div><div></div></div>
+            </div>
+            <div class="data-stack">
+                
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>displaySourcesData( {{sources|tojson}} );</script>
+</html>

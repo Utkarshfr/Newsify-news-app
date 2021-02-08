@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+input[type=checkbox]{
+    cursor: pointer;
+}
+
+body{
+    position: relative;
+}
+
+div .newsbox, .filter{
+    border: 1.5px solid rgb(103, 100, 100);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+}
+
+* {
+    box-sizing: border-box;
+}
+  
+.column {
+    padding: 10px;
+}
+  
+.left {
+    position: sticky;
+    width: 25%;
+    background-color: aqua;
+    float:left;
+}
+  
+.right {
+    width: 75%;
+    background-color: beige;
+    float: right;
+}
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+h2 a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Google Sans', sans-serif;
+    margin: 0px;
+}
+
+h2 a:hover{
+    text-decoration: underline;
+}
+
+button{
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;   
+}
+
+button:hover{
+    transition: 300ms;
+    background-color: black;
+    color: white;
+}
+
+button:focus{
+    border: none;
+}
+
+.source-name{
+    color: rgb(175, 181, 186);
+    font-family: 'Open Sans',sans-serif;
+}
+
+.timestamp{
+    color: rgb(175, 181, 186);
+    font-family: 'Open Sans',sans-serif;
+    margin-left: 18px;
+}
+
+@media only screen and (max-width: 700px){
+    .column{
+        float: none;
+    }
+
+    .left{
+        width: auto;
+    }
+
+    .right{
+        width: auto;
+    }
+
+    .lds-ripple{
+        left: 50%;
+    }
+}
+
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-left: 50%;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 4px solid rgb(17, 16, 16);
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }
+  
+img{
+    width: 100px;
+    height: 100px;
+    border: 0px solid black;
+    border-radius: 5px;
+    float: right;
+}

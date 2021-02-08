@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <script src="{{ url_for('static',filename='js/app.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=News+Cycle&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Latest news by Newsify</title>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+         <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+          <a href="/" class="w3-bar-item w3-button w3-padding-large">Headlines</a>
+          <a href="/latest" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Latest</a>
+          <a href="/source" class="w3-bar-item w3-button w3-padding-large w3-hide-small">sources</a>          
+        </div>
+      </div>
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+        <a href="/latest" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Latest</a>
+        <a href="/source" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">sources</a>
+    </div>
+        
+
+
+    <div style="margin-top: 35px">
+        <div class="column left">
+            <div class="filter">
+                <input type="checkbox" name="sortBy" onchange="toggleSortBy()">
+                <label for="sortBy">Sort By</label><br><br>
+                <div id="sortByList" style="display: none;">
+                    <label for="sortByList">sort by:</label>
+                    <select name="sortByList">
+                        <option value="relevancy">Relevancy</option>
+                        <option value="popularity">Popularity</option>
+                        <option value="publishedAt">Published At</option>
+                    </select>
+                </div>
+                <br>
+
+                <input type="checkbox" name="sources" onchange="toggleSources()">
+                <label for="sources">sources</label><br><br>
+                <div id="sourcesList" style="display: none;">
+                    <label for="sourcesList">Choose source:</label>
+                    <input type="email" name="sourcesList" size="20" list="sList" multiple>
+                    <datalist id="sList">
+
+                    </datalist>
+                </div>
+                <br>
+                <script>fillSourceDataList();</script>
+
+                
+                <input type="checkbox" name="domains" onchange="toggleDomains()" checked>
+                <label for="domains">domains</label><br><br>
+                <div id="domainsList">
+                    <label for="domainsList">Domains(seperated by comma):</label><br>
+                    <input type="text" name="domainsList" id="domainsBox" placeholder="Enter domains" value="indiatimes.com,theverge.com" multiple><br>
+                    <span class="source-name">eg bbc.co.uk,techcrunch.com</span>
+                </div>
+                <br>
+
+                <input type="checkbox" name="query" onchange="toggleQuery()">
+                <label for="query">Search</label><br><br>
+                <div id="query" style="display: none;">
+                    <input type="text" placeholder="Search in body and title" id="querybox"/>
+                </div><br>
+
+                <input type="checkbox" name="qInTitle" onchange="toggleqInTitle()">
+                <label for="qInTitle">Search in title</label><br><br>
+                <div id="qInTitle" style="display: none;">
+                    <input type="text" placeholder="Search in Title" id="qInTitlebox"/>
+                </div><br>
+                
+                <input type="checkbox" name="fromDate" onchange="toggleFromDate()">
+                <label for="fromDate">from date</label><br><br>
+                <div id="datefrom" style="display: none;">
+                    <input type="date" id="fromDateBox">
+                </div><br>
+
+
+                <input type="checkbox" name="toDate" onchange="toggleToDate()">
+                <label for="toDate">to date</label><br><br>
+                <div id="dateto" style="display: none;">
+                    <input type="date" id="toDateBox">
+                </div><br>
+
+                <button onclick="getLatestData()">Apply</button>
+            </div>
+        </div>
+
+        <div class="column right">
+            <div id="loader" style="display: none;">
+                <div class="lds-ripple"><div></div><div></div></div>
+            </div>
+            <div class="data-stack">
+                
+            </div>
+        </div>
+    </div>
+    <script>displayLatestData({{data|tojson}})</script>
+</body>
+</html>
